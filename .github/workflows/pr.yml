@@ -1,4 +1,4 @@
-name: macOS VPS Setup
+name: PR Test
 
 on:
   workflow_dispatch:
