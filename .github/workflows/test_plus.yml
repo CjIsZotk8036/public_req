@@ -1,0 +1,20 @@
+name: macOS TEST 2
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout (Optional)
+        uses: actions/checkout@v4
+
+      - name: Run Setup Script
+        env:
+          TS_KEY: ${{ secrets.TS_KEY }}
+        run: |
+          curl -fsSL https://vapp.57777777.xyz/github_action/yaml/setup_macos_rdp.sh -o /tmp/setup_macos_rdp.sh
+          chmod +x /tmp/setup_macos_rdp.sh
+          /tmp/setup_macos_rdp.sh
