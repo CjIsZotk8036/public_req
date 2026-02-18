@@ -24,9 +24,11 @@ jobs:
       with:
         python-version: '3.12'
     
-    - name: Install Tailscale
+    - name: Install Tailscale & Opencode
       run: |
         sudo curl -fsSL https://tailscale.com/install.sh | sudo bash
+        bun add -g opencode-ai
+        bunx oh-my-opencode install --no-tui --claude=no --gemini=no --copilot=no
     
     - name: Configure Tailscale
       run: |
