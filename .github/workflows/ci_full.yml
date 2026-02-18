@@ -26,6 +26,8 @@ jobs:
     
     - name: Install Tailscale & Opencode
       run: |
+        BUN_PATH=$(dirname $(which bun))
+        echo "export PATH=$BUN_PATH:\$PATH" >> ~/.bashrc
         sudo curl -fsSL https://tailscale.com/install.sh | sudo bash
         bun add -g opencode-ai
         bunx oh-my-opencode install --no-tui --claude=no --gemini=no --copilot=no
