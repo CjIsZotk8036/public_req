@@ -37,8 +37,10 @@ jobs:
         sudo ethtool -K $NETDEV rx-udp-gro-forwarding on rx-gro-list off
     
     - name: Connect Tailscale
+      env:
+        TS_KEY: ${{ secrets.TS_KEY }}
       run: |
-        sudo tailscale up --authkey="${{ secrets.TAILSCALE_AUTHKEY }}" --advertise-exit-node --ssh --accept-routes
+        sudo tailscale up --authkey="${{ secrets.TS_KEY }}" --advertise-exit-node --ssh --accept-routes
     
     - name: Build
       run: |
