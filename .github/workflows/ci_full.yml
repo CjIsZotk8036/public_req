@@ -8,29 +8,12 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-    
-    - name: Setup Go 1.24
-      uses: actions/setup-go@v5
-      with:
-        go-version: '1.24'
-    
-    - name: Setup Bun
-      uses: oven-sh/setup-bun@v2
-      with:
-        bun-version: latest
-    
-    - name: Setup Python 3.12
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.12'
-    
+
     - name: Install Tailscale & Opencode
       run: |
         BUN_PATH=$(dirname $(which bun))
         echo "export PATH=$BUN_PATH:\$PATH" >> ~/.bashrc
         sudo curl -fsSL https://tailscale.com/install.sh | sudo bash
-        bun add -g opencode-ai
-        bunx oh-my-opencode install --no-tui --claude=no --gemini=no --copilot=no
     
     - name: Configure Tailscale
       run: |
