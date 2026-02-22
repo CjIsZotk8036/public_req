@@ -9,10 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - name: Install Tailscale & Opencode
+    - name: Install Tailscale
       run: |
-        BUN_PATH=$(dirname $(which bun))
-        echo "export PATH=$BUN_PATH:\$PATH" >> ~/.bashrc
         sudo curl -fsSL https://tailscale.com/install.sh | sudo bash
     
     - name: Configure Tailscale
